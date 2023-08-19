@@ -3,6 +3,7 @@ import {
   getDatabase,
   ref,
   push,
+  onValue,
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
 
 const appSettings = {
@@ -12,15 +13,21 @@ const appSettings = {
 
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
-const shoppingListInDB = ref(database, '/shopping-list');
+const shoppingListInDB = ref(database, 'shopping-list');
 
-const inputField = document.getElementById('input-field');
-const addToCartButton = document.getElementById('add-button');
+const inputFieldEl = document.getElementById('input-field');
+const addToCartButtonEl = document.getElementById('add-button');
+const shoppingListEl = document.getElementById('shopping-list');
 
-addToCartButton.addEventListener('click', () => {
-  const inputValue = inputField.value;
+addToCartButtonEl.addEventListener('click', () => {
+  const inputValue = inputFieldEl.value;
+  addShoppingItemToList(inputValue);
   push(shoppingListInDB, inputValue);
-  inputField.value = '';
+  resetInputField();
 });
 
-// https://shopping-cart-e916d-default-rtdb.europe-west1.firebasedatabase.app/
+const addShoppingItemToList = (inputValue) => {
+  shoppingListEl.innerHTML += `<li>${inputValue}</li>`;
+};
+
+const resetInputField = () => (inputFieldEl.value = '');
