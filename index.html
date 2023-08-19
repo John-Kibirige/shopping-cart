@@ -8,7 +8,7 @@
   </head>
   <body class="px-5 py-8 font-rubik">
     <div
-      class="container bg-green-50 w-full mx-auto rounded-md border-2 border-slate-900 pt-12 pb-8"
+      class="container bg-green-50 w-full mx-auto rounded-md border-2 border-slate-900 pt-12 pb-8 px-4"
     >
       <img
         src="https://w7.pngwing.com/pngs/169/114/png-transparent-cat-cartoon-cat-mammal-animals-cat-like-mammal-thumbnail.png"
@@ -22,16 +22,22 @@
           type="text"
           id="input-field"
           placeholder="Orange"
-          class="border rounded py-1 px-2 text-center text-red-900 bg-slate-200 shadow-sm focus:ring-1 focus:ring-red-800 focus:outline-none"
+          class="border rounded py-2 px-2 text-center text-red-900 bg-slate-200 shadow-sm focus:ring-1 focus:ring-red-800 focus:outline-none"
         />
         <button
           id="add-button"
-          class="border bg-red-800 text-white rounded py-1"
+          class="border bg-red-800 text-white rounded py-2"
         >
           Add to cart
         </button>
       </div>
+
+      <!-- shopping items  -->
+      <ul class="shopping-items mt-5" id="shopping-list">
+        <li class="item">Oranges</li>
+        <li class="item">Apples</li>
+      </ul>
     </div>
-    <script src="src/index.js"></script>
+    <script src="src/index.js" type="module"></script>
   </body>
 </html>
